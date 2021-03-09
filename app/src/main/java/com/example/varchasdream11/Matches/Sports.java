@@ -112,11 +112,26 @@ public class Sports extends AppCompatActivity {
                             long hours = minutes / 60;
                             long days = hours / 24;
 
+                            // reference time = time = days + " " + "d" + " : " + hours % 24 + " h" + " : " + minutes % 60 + " m" + " : " + seconds % 60 + " s";
+
                             // Days format
-                            //String time = days+" "+"d" +" :" +hours % 24 + "h"+":" + minutes % 60 + "m"+":" + seconds % 60+"s";
+                            String time = "";
+                            time = days + " days to go";
+                            if (days==1){
+                                time = days + " day to go";
+                            }
+                            else if(days==0 && hours==0 && minutes==0){
+                                time = seconds % 60 + " s";
+                            }
+                            else if (days==0 && hours==0 ){
+                                time = minutes % 60 + " m" + " : " + seconds % 60 + " s";
+                            }
+                            else if (days==0 ){
+                                time = hours + "h" + " : " + minutes % 60 + " m" + " : " + seconds % 60 + " s";
+                            }
 
                             //Hours format
-                            String time = hours + "h" + " : " + minutes % 60 + " m" + " : " + seconds % 60 + " s";
+                            //String time = hours + "h" + " : " + minutes % 60 + " m" + " : " + seconds % 60 + " s";
                             holder.matchTime.setText(time);
                         }
 
